@@ -28,10 +28,8 @@ def euclid(xp,yp,data_u):
     return ll    
     
 def smallest_k(euclid, k):
-    euclid = np.array(euclid)
-    sorted_euclid = np.argsort(euclid)
-    smallest_id = sorted_euclid[:k]
-    return smallest_id
+    sorted_euclid = np.argsort(np.array(euclid))
+    return sorted_euclid[:k]
 
 def decision(data, smallest_k):
     c1 = []
@@ -55,7 +53,6 @@ def KNN(xp,yp,data=data,k=3):
     sm_k = smallest_k(euc,k)
     label = decision(data, sm_k)
     data.loc[len(data)] = [label,xp,yp]
-
 
 KNN(xp,yp,k=9)
 
